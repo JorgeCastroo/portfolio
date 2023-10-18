@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "../reducer/theme/theme";
+import languageReducer from "../reducer/language/language";
 
 const store = configureStore({
   reducer: {
     theme: themeReducer,
+    language: languageReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

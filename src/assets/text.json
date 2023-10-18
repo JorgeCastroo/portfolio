@@ -1,0 +1,23 @@
+{
+  "portuguese": {
+    "aboutMe": {
+      "title": "Olá, meu nome é Jorge Castro",
+      "subtitle": "Desenvolvedor Full-Stack",
+      "description": "Densenvolvedor com foco no Front-end e Mobile"
+    }
+  },
+  "english": {
+    "aboutMe": {
+      "title": "Hi,I'm  Jorge Castro",
+      "subtitle": "Full-Stack Developer",
+      "description": "Developer focused on Front-end and Mobile"
+    }
+  },
+  "spanish": {
+    "aboutMe": {
+      "title": "Hola, soy Jorge Castro",
+      "subtitle": "Desarrollador Full-Stack",
+      "description": "Desarrollador enfocado en Front-end y Mobile"
+    }
+  }
+}

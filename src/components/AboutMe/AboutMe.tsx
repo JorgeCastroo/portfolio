@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import * as S from "./styles";
 import Background from "../../assets/background.svg";
@@ -6,17 +6,33 @@ import Me from "../../assets/developer.jpeg";
 
 import { Button } from "../Button/Button";
 import { Github, Linkedin } from "lucide-react";
+import Text from "../../assets/text.json";
+import { useAppSelector } from "../../redux/hooks";
 
 export const AboutMe: React.FC = () => {
+  const { language } = useAppSelector((state) => state.language);
+  const [text, setText] = useState<any>();
+
+  useEffect(() => {
+    if (language === "english") {
+      setText(Text.english.aboutMe);
+    } else if (language === "portuguese") {
+      setText(Text.portuguese.aboutMe);
+    } else {
+      setText(Text.spanish.aboutMe);
+    }
+  }, [language]);
+
   return (
     <S.Container>
       <S.WrappedInfos>
-        <S.Title>Hi,I'm Jorge Castro</S.Title>
-        <S.SubTitle>Full-Stack Developer</S.SubTitle>
-        <S.Description>
-          Developer focused on front-end and mobile.
-        </S.Description>
-
+        {text && (
+          <>
+            <S.Title>{text.title}</S.Title>
+            <S.SubTitle>{text.subtitle}</S.SubTitle>
+            <S.Description>{text.description}</S.Description>
+          </>
+        )}
         <S.WrappedButton>
           <Button
             type="primary"
