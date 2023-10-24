@@ -6,7 +6,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  border: 1px solid #525252;
+  border-radius: 10px;
+  box-shadow: ${(props) => props.theme.boxShadow.primary};
+  overflow: hidden;
   @media (max-width: 768px) {
   }
 `;

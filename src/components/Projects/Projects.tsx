@@ -3,8 +3,8 @@ import React from "react";
 import * as S from "./styles";
 import { CardProject } from "../CardProject/CardProject";
 import juridika from "../../assets/juridika.png";
-import iapcursos from "../../assets/iapcuros.png";
-import boonsplanner from "../../assets/boonsplanner.png";
+import iapcursos from "../../assets/iapcursos.jpg";
+import boonsplanner from "../../assets/boonsplanner.jpg";
 
 export const Projects: React.FC = () => {
   return (

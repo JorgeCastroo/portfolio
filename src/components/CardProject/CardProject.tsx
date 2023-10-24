@@ -32,11 +32,7 @@ export const CardProject: React.FC<CardProjectProps> = ({
       </S.WrappedContent>
       <S.WrappedRow>
         {tecnologies?.map((tecnologie) => (
-          <Icon
-            icon={tecnologie}
-            size={tecnologie === "expo" ? 100 : 30}
-            color={theme ? "black" : "white"}
-          />
+          <Icon icon={tecnologie} size={30} color={theme ? "black" : "white"} />
         ))}
       </S.WrappedRow>
       <S.WrappedRow>

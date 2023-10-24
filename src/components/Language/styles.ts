@@ -27,6 +27,7 @@ export const PopoverContainer = styled(Popover.Root)`
 
 export const PopoverTrigger = styled(Popover.Trigger)`
   border: none;
+  background-color: transparent;
 `;
 
 export const PopoverContent = styled(Popover.Content)`
