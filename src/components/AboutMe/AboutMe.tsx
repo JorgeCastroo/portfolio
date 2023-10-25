@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import * as S from "./styles";
 import Background from "../../assets/background.png";
-import Me from "../../assets/developer.jpeg";
+import Me from "../../assets/developer.jpg";
 
 import { Button } from "../Button/Button";
 import { FileDown, Github, Linkedin } from "lucide-react";

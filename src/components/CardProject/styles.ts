@@ -32,6 +32,7 @@ export const Description = styled.text`
   color: ${(props) => props.theme.colors.text};
   font-size: 16px;
   font-weight: 400;
+  text-align: justify;
 `;
 
 export const WrappedRow = styled.div`

@@ -40,7 +40,7 @@ export const Projects: React.FC = () => {
             title="Odonto Virtual"
             image={odontovirtual}
             description={text.odontovirtual.description}
-            link="https://www.odontovirtual.com/"
+            link="https://odontovirtual.com.br/auth/login"
             tecnologies={["react", "redux", "javascript", "next"]}
           />
           <CardProject

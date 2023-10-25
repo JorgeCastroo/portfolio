@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
           {language === "english"
             ? "Interested in closing a partnership? Contact:"
             : language === "portuguese"
-            ? "Se interessou em fechar uma parceria ? Entre em contato:"
+            ? `Se interessou em fechar uma parceria ? Entre em contato:`
             : "¿Interesado en cerrar una sociedad? Entre en contacto:"}
         </S.Description>
       </S.WrappedInfos>
