@@ -32,10 +32,10 @@ export const PopoverTrigger = styled(Popover.Trigger)`
 
 export const PopoverContent = styled(Popover.Content)`
   border-radius: 4px;
-  z-index: 30;
+  z-index: 999;
   padding: 8px;
   background-color: #ffffff;
-
+  cursor: pointer;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;

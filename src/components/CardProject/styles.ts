@@ -1,16 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
   max-width: 777px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  justify-content: space-between;
   border-radius: 10px;
   box-shadow: ${(props) => props.theme.boxShadow.primary};
   overflow: hidden;
-  @media (max-width: 768px) {
-  }
 `;
 
 export const Image = styled.img`
@@ -42,4 +40,8 @@ export const WrappedRow = styled.div`
   align-items: center;
   gap: 20px;
   padding: 10px;
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;

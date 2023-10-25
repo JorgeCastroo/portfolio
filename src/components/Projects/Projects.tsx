@@ -1,42 +1,90 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import * as S from "./styles";
 import { CardProject } from "../CardProject/CardProject";
 import juridika from "../../assets/juridika.png";
 import iapcursos from "../../assets/iapcursos.jpg";
 import boonsplanner from "../../assets/boonsplanner.jpg";
+import odontovirtual from "../../assets/odontovirtual.png";
+import gym from "../../assets/gymapp.png";
+
+import { useAppSelector } from "../../redux/hooks";
+import Text from "../../assets/text.json";
 
 export const Projects: React.FC = () => {
+  const { language } = useAppSelector((state) => state.language);
+  const [text, setText] = useState<any>();
+
+  useEffect(() => {
+    if (language === "english") {
+      setText(Text.english.projects);
+    } else if (language === "portuguese") {
+      setText(Text.portuguese.projects);
+    } else {
+      setText(Text.spanish.projects);
+    }
+  }, [language]);
+
   return (
     <S.Container>
-      <S.Title>Projects</S.Title>
-      <S.GridProjects>
-        <CardProject
-          title="IAP Cursos on-line"
-          image={iapcursos}
-          description="Trata-se de um site de e-learning dedicado ao estudo para concursos públicos, onde participei ativamente no desenvolvimento. Este projeto oferece uma plataforma abrangente para estudantes e profissionais que buscam se preparar para concursos, proporcionando acesso a uma variedade de recursos educacionais e ferramentas úteis."
-          link="https://www.iapcursosonline.com/"
-          tecnologies={["react", "typescript", "next"]}
-        />
-        <CardProject
-          image={juridika}
-          title="Juridika"
-          description="     Trata-se de um aplicativo dedicado ao estudo do direito, uma
-          iniciativa na qual assumi a responsabilidade por todos os aspectos do
-          desenvolvimento. Este aplicativo oferece uma plataforma abrangente
-          para estudantes e profissionais da área jurídica, fornecendo acesso a
-          uma variedade de recursos educacionais e ferramentas úteis."
-          tecnologies={["react", "expo", "typescript"]}
-        />
-        <CardProject
-          image={boonsplanner}
-          title="BoonsPlanner"
-          description="     Trata-se de um aplicativo dedicado a saúde pessoal e familiar, uma
-          iniciativa na qual assumi a responsabilidade por todos os aspectos do
-          desenvolvimento. Desde a idealização ao desenvolvimento e publicação. Este aplicativo oferece funcionalidades abrangentes para o usuário ter um controle melhor sobre sua saúde."
-          tecnologies={["react", "expo", "node", "typescript"]}
-        />
-      </S.GridProjects>
+      <S.Title>
+        {language === "english"
+          ? "Projects"
+          : language === "portuguese"
+          ? "Projetos"
+          : "Proyectos"}
+      </S.Title>
+      {text && (
+        <S.GridProjects>
+          <CardProject
+            title="Odonto Virtual"
+            image={odontovirtual}
+            description={text.odontovirtual.description}
+            link="https://www.odontovirtual.com/"
+            tecnologies={["react", "redux", "javascript", "next"]}
+          />
+          <CardProject
+            image={boonsplanner}
+            title="BoonsPlanner"
+            description={text.boonsplanner.description}
+            tecnologies={[
+              "react",
+              "redux",
+              "expo",
+              "node",
+              "javascript",
+              "sql",
+            ]}
+          />
+          <CardProject
+            title="IAP Cursos on-line"
+            image={iapcursos}
+            description={text.iap.description}
+            link="https://www.iapcursosonline.com/"
+            tecnologies={["react", "redux", "javascript", "next"]}
+          />
+          <CardProject
+            image={juridika}
+            title="Juridika"
+            description={text.juridika.description}
+            tecnologies={["react", "expo", "javascript"]}
+          />
+
+          <CardProject
+            image={gym}
+            title="Gym Fitness"
+            description={text.gym.description}
+            tecnologies={[
+              "react",
+              "redux",
+              "javascript",
+              "expo",
+              "node",
+              "sql",
+            ]}
+          />
+        </S.GridProjects>
+      )}
     </S.Container>
   );
 };

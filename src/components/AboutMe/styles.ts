@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-top: 100px;
+  margin-top: 200px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0px 120px;
   gap: 10px;
   @media (max-width: 768px) {
     flex-direction: column-reverse;
+    padding: 0px;
   }
 `;
 

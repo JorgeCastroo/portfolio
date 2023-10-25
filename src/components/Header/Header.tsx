@@ -7,7 +7,7 @@ import { setTheme } from "../../redux/reducer/theme/theme";
 
 import Language from "../Language/Language";
 import { setLanguage } from "../../redux/reducer/language/language";
-import Text from "../../assets/text.json";
+import { Button } from "../Button/Button";
 
 export const Header: React.FC = () => {
   const { theme } = useAppSelector((state) => state.theme);
@@ -17,17 +17,47 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     if (language === "english") {
-      setText(Text.english.aboutMe);
+      setText({
+        english: "English",
+        portuguese: "Portuguese",
+        spanish: "Spanish",
+      });
     } else if (language === "portuguese") {
-      setText(Text.portuguese.aboutMe);
+      setText({
+        english: "Inglês",
+        portuguese: "Português",
+        spanish: "Espanhol",
+      });
     } else {
-      setText(Text.spanish.aboutMe);
+      setText({
+        english: "Inglés",
+        portuguese: "Portugués",
+        spanish: "Español",
+      });
     }
   }, [language]);
 
   const dispatch = useAppDispatch();
+
+  const handleScroll = () => {
+    const targetElement = document.getElementById("contact");
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <S.Container>
+      <Button
+        label={
+          language === "english"
+            ? "Contact"
+            : language === "portuguese"
+            ? "Contato"
+            : "Contacto"
+        }
+        type="primary"
+        onClick={handleScroll}
+      />
       <S.Icon>
         <Language
           side="bottom"
@@ -36,18 +66,20 @@ export const Header: React.FC = () => {
           }
           content={
             <>
-              <div onClick={() => dispatch(setLanguage("portuguese"))}>
-                Portugues
-              </div>
-              <div onClick={() => dispatch(setLanguage("english"))}>Ingles</div>
-              <div onClick={() => dispatch(setLanguage("spanish"))}>
-                Espanhol
-              </div>
+              <S.ItemList onClick={() => dispatch(setLanguage("portuguese"))}>
+                {text && text.portuguese}
+              </S.ItemList>
+              <S.ItemList onClick={() => dispatch(setLanguage("english"))}>
+                {text && text.english}
+              </S.ItemList>
+              <S.ItemList onClick={() => dispatch(setLanguage("spanish"))}>
+                {text && text.spanish}
+              </S.ItemList>
             </>
           }
         />
       </S.Icon>
-      <S.Icon>
+      <S.Icon right>
         {theme ? (
           <Moon
             color={"black"}

@@ -22,6 +22,7 @@ export const CardProject: React.FC<CardProjectProps> = ({
   tecnologies,
 }) => {
   const { theme } = useAppSelector((state) => state.theme);
+  const { language } = useAppSelector((state) => state.language);
 
   return (
     <S.Container>
@@ -32,15 +33,37 @@ export const CardProject: React.FC<CardProjectProps> = ({
       </S.WrappedContent>
       <S.WrappedRow>
         {tecnologies?.map((tecnologie) => (
-          <Icon icon={tecnologie} size={30} color={theme ? "black" : "white"} />
+          <Icon
+            icon={tecnologie}
+            width={
+              tecnologie === "node"
+                ? 100
+                : tecnologie === "expo"
+                ? 100
+                : tecnologie === "sql"
+                ? 100
+                : tecnologie === "javascript"
+                ? 70
+                : 30
+            }
+            color={theme ? "black" : "white"}
+          />
         ))}
       </S.WrappedRow>
       <S.WrappedRow>
-        <Button
-          label="View demo"
-          type="primary"
-          onClick={() => window.open(link)}
-        />
+        {link && (
+          <Button
+            label={
+              language === "english"
+                ? "View project"
+                : language === "portuguese"
+                ? "Ver projeto"
+                : "Ver proyecto"
+            }
+            type="primary"
+            onClick={() => window.open(link)}
+          />
+        )}
       </S.WrappedRow>
     </S.Container>
   );

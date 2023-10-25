@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 170px;
+  margin-top: 50px;
   padding: 0px 120px;
   @media (max-width: 768px) {
     padding: 0px 20px;
@@ -20,12 +20,17 @@ export const Title = styled.text`
 `;
 export const GridProjects = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
+
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+export const Skills = styled.img`
+  @media (max-width: 768px) {
+    width: 30%;
   }
 `;

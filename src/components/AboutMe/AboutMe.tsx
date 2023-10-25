@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from "react";
 
 import * as S from "./styles";
-import Background from "../../assets/background.svg";
+import Background from "../../assets/background.png";
 import Me from "../../assets/developer.jpeg";
 
 import { Button } from "../Button/Button";
-import { Github, Linkedin } from "lucide-react";
+import { FileDown, Github, Linkedin } from "lucide-react";
 import Text from "../../assets/text.json";
+import curriculum from "../../assets/cvJorgecastro.pdf";
+
 import { useAppSelector } from "../../redux/hooks";
 
 export const AboutMe: React.FC = () => {
   const { language } = useAppSelector((state) => state.language);
   const [text, setText] = useState<any>();
+
+  const handleDownloadClick = () => {
+    const link = document.createElement("a");
+    link.href = curriculum;
+    link.download = "cvjorgecastro.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   useEffect(() => {
     if (language === "english") {
@@ -45,6 +56,11 @@ export const AboutMe: React.FC = () => {
             onClick={() =>
               window.open("https://www.linkedin.com/in/jorge-castro-930996207/")
             }
+          />
+          <Button
+            type="primary"
+            asIcon={<FileDown color="black" />}
+            onClick={handleDownloadClick}
           />
         </S.WrappedButton>
       </S.WrappedInfos>
